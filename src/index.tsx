@@ -8,4 +8,3 @@ if (container) {
   const root = createRoot(container);
   root.render(React.createElement(App));
 }
-

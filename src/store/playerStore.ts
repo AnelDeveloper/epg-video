@@ -26,4 +26,3 @@ export const usePlayerStore = create<PlayerState>(function (set) {
         },
     };
 });
-

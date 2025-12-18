@@ -17,7 +17,7 @@ export function ChannelList() {
   if (!data || data.channels.length === 0) {
     return (
       <div className="flex flex-col h-full">
-        <p className="text-white p-4">No channels available</p>
+        <p className="text-white p-2 md:p-4 text-sm md:text-base">No channels available</p>
       </div>
     );
   }
@@ -28,8 +28,8 @@ export function ChannelList() {
   };
 
   return (
-    <div className="flex flex-col h-full flex-shrink-0 overflow-y-auto border-r border-white/20 relative">
-      <div className="absolute left-0 bottom-4 text-white/80 text-2xl px-2 z-10 pointer-events-none">
+    <div className="flex flex-col h-full flex-shrink-0 overflow-y-auto border-r-0 md:border-r border-b md:border-b-0 border-white/20 relative">
+      <div className="absolute left-0 bottom-4 text-white/80 text-xl md:text-2xl px-2 z-10 pointer-events-none hidden md:block">
         &lt;
       </div>
       {data.channels.map((channel, index) => {
@@ -46,7 +46,7 @@ export function ChannelList() {
             key={channel.id}
             onClick={() => handleChannelClick(channel.id)}
             className={`
-              flex items-center gap-4 text-left px-4 py-3  border-b border-white/20 relative
+              flex items-center gap-2 md:gap-4 text-left px-3 md:px-4 py-2 md:py-3 border-b border-white/20 relative
               ${isSelected
                 ? 'bg-white/30 text-white'
                 : 'bg-transparent text-white hover:bg-white/10'
@@ -57,22 +57,22 @@ export function ChannelList() {
               <img
                 src={channel.icon}
                 alt={channelName}
-                className="w-12 h-12 object-contain flex-shrink-0"
+                className="w-8 h-8 md:w-12 md:h-12 object-contain flex-shrink-0"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                 }}
               />
             )}
-            <div className="flex-1 text-left">
-              <div className="font-medium text-base">
-                <span className="mr-2">{channelNumber}</span>
-                {channelName}
+            <div className="flex-1 text-left min-w-0">
+              <div className="font-medium text-sm md:text-base truncate">
+                <span className="mr-1 md:mr-2">{channelNumber}</span>
+                <span className="truncate">{channelName}</span>
               </div>
             </div>
             {isSelected && (
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-red-500 rounded-full flex-shrink-0"></span>
-                <span className="text-white font-medium text-base">{programCount}</span>
+              <div className="flex items-center gap-1 md:gap-2 flex-shrink-0">
+                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                <span className="text-white font-medium text-xs md:text-base">{programCount}</span>
               </div>
             )}
           </button>

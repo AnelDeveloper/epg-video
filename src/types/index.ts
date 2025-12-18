@@ -11,7 +11,7 @@ export interface Program {
   title: string;
   start: string;
   stop: string;
-  startDate: string; // Full date in YYYY-MM-DD format for filtering
+  startDate: string;
   desc?: string;
   category?: string;
   icon?: string;
@@ -50,4 +50,3 @@ export interface PlayerState {
   incrementRecoveryAttempts: () => void;
   resetRecoveryAttempts: () => void;
 }
-
